@@ -1,4 +1,4 @@
-// https://docs.vuestorefront.io/guide/vuex/vuex-conventions.html
+import auth from "@/api/auth";
 
 export default {
   namespaced: true,
@@ -24,9 +24,11 @@ export default {
     fetchUser() {},
     setAccessToken({ commit }, token) {
       commit("SET_ACCESS_TOKEN", token);
+      auth.setAccessToken(token);
     },
     setExpiryTime({ commit }, time) {
       commit("SET_EXPIRY_TIME", time);
+      auth.setExpiryTime(time);
     }
   },
   getters: {

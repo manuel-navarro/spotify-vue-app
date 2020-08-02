@@ -28,3 +28,7 @@ Spotify Vue App allows the user to search artists, albums, tracks and playlists 
 This project uses Implicit Grant Flow for User Authorization as it doesn't require any server-side code. 
 More details about this flow can be found at:
 https://developer.spotify.com/documentation/general/guides/authorization-guide/#implicit-grant-flow
+
+### Vuex
+Vuex naming conventions are followed:
+https://docs.vuestorefront.io/guide/vuex/vuex-conventions.html

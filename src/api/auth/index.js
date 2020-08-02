@@ -1,4 +1,5 @@
 const ACCESS_TOKEN_KEY = "access_token";
+const EXPIRY_TIME_KEY = "expiry_time";
 
 const scopes = ["user-library-read"];
 const endpointAuthURL = process.env.VUE_APP_ENDPOINT_AUTH_URL;
@@ -30,5 +31,17 @@ export default {
 
   clearAccessToken() {
     localStorage.clear(ACCESS_TOKEN_KEY);
+  },
+
+  setExpiryTime(time) {
+    localStorage.setItem(EXPIRY_TIME_KEY, time);
+  },
+
+  getExpiryTime() {
+    return localStorage.getItem(EXPIRY_TIME_KEY);
+  },
+
+  clearExpiryTime() {
+    localStorage.clear(EXPIRY_TIME_KEY);
   }
 };

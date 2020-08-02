@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// TODO: Move endpointURL to config file
-const baseURL = "https://api.spotify.com/v1/";
-
+const baseURL = process.env.VUE_APP_ENDPOINT_API_URL;
 const request = axios.create({
   baseURL
 });

@@ -1,10 +1,9 @@
 const ACCESS_TOKEN_KEY = "access_token";
 
-// TODO: Move to a configuration file
-const endpointAuthURL = "https://accounts.spotify.com";
-const callbackURL = "http://localhost:8080/auth_callback";
-const clientID = "b1f8054317964de89f8aae59ded08518";
 const scopes = ["user-library-read"];
+const endpointAuthURL = process.env.VUE_APP_ENDPOINT_AUTH_URL;
+const callbackURL = process.env.VUE_APP_ENDPOINT_CALLBACK_URL;
+const clientID = process.env.VUE_APP_API_KEY;
 
 export default {
   getAuthorizationURL() {

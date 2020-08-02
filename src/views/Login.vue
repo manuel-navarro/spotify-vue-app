@@ -2,14 +2,23 @@
   <div class="login">
     <h1>Spotify Vue App</h1>
     <p>Please log in with Spotify to use this app</p>
-    <a rel="noopener noreferrer" class="login__button">Login with Spotify</a>
+    <a :href="loginURL" rel="noopener noreferrer" class="login__button"
+      >Login with Spotify</a
+    >
   </div>
 </template>
 
 <script>
+import auth from "@/api/auth";
+
 export default {
   name: "login",
-  components: {}
+  components: {},
+  data: () => {
+    return {
+      loginURL: auth.getAuthorizationURL()
+    };
+  }
 };
 </script>
 <style scoped>

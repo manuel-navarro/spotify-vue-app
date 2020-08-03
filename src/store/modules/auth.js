@@ -1,10 +1,10 @@
-import auth from "@/api/auth";
+import api from "@/api";
 
 export default {
   namespaced: true,
   state: {
     user: {},
-    accessToken: "test_token",
+    accessToken: api.auth.getAccessToken() || "",
     expiryTime: ""
   },
   mutations: {
@@ -19,16 +19,34 @@ export default {
     }
   },
   actions: {
-    doLogin() {},
+    doLogin() {
+      try {
+        const url = api.auth.getAuthorizationURL();
+        if (url) {
+          window.location.href = url;
+        }
+      } catch (e) {
+        // TODO: Handle error and provide feedback
+        console.log(e);
+      }
+    },
     doLogout() {},
-    fetchUser() {},
+    async fetchUser({ commit }) {
+      try {
+        const response = await api.spotify.users.me();
+        commit("SET_USER", response.data);
+      } catch (e) {
+        // TODO: Handle error and provide feedback
+        console.log(e);
+      }
+    },
     setAccessToken({ commit }, token) {
       commit("SET_ACCESS_TOKEN", token);
-      auth.setAccessToken(token);
+      api.auth.setAccessToken(token);
     },
     setExpiryTime({ commit }, time) {
       commit("SET_EXPIRY_TIME", time);
-      auth.setExpiryTime(time);
+      api.auth.setExpiryTime(time);
     }
   },
   getters: {

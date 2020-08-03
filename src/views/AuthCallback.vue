@@ -1,8 +1,4 @@
-<template>
-  <div>In authcallback</div>
-</template>
 <script>
-// import auth from "@/api/auth";
 import { mapActions } from "vuex";
 
 function parseHashFragment(hashFragment) {
@@ -20,7 +16,7 @@ function parseHashFragment(hashFragment) {
 export default {
   name: "",
   methods: {
-    ...mapActions("auth", ["setAccessToken", "setExpiryTime", "user"])
+    ...mapActions("auth", ["setAccessToken", "setExpiryTime", "fetchUser"])
   },
   created() {
     const error = this.$route.query.error;
@@ -36,6 +32,7 @@ export default {
 
       this.setAccessToken(access_token);
       this.setExpiryTime(expiryTime);
+      this.fetchUser();
       this.$router.push({ name: "home" });
     }
   }

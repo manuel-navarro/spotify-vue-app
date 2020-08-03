@@ -30,11 +30,7 @@ export default {
   },
   computed: {
     getErrorMessage() {
-      if (this.errorMessage) {
-        return "Ops!! Something went wrong...";
-      } else {
-        return "";
-      }
+      return "Ops!! Something went wrong...";
     }
   }
 };

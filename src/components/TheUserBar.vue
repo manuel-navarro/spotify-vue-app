@@ -19,6 +19,7 @@ export default {
       return this.user.display_name;
     },
     userImage() {
+      // TODO: Add default image if user doesn't have any
       const images = this.user.images;
       return images.length > 0 ? images[0].url : null;
     }

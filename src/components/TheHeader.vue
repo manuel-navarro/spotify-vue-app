@@ -1,17 +1,17 @@
 <template>
   <header class="theHeader">
-    <SearchBox class="theHeader__searchBox" />
+    <TheSearchBox class="theHeader__searchBox" />
     <TheUserBar />
   </header>
 </template>
 <script>
 import TheUserBar from "@/components/TheUserBar";
-import SearchBox from "@/components/SearchBox";
+import TheSearchBox from "@/components/TheSearchBox";
 export default {
   name: "TheHeader",
   components: {
     TheUserBar,
-    SearchBox
+    TheSearchBox
   }
 };
 </script>

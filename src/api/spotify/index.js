@@ -1,5 +1,7 @@
-import users from "./users/users";
+import users from "./users";
+import search from "./search";
 
 export default {
-  users
+  users,
+  search
 };

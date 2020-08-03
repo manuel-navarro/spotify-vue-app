@@ -1,20 +1,15 @@
 <template>
   <div class="home">
-    <h1>Welcome!</h1>
-    <p>Access token is {{ getAccessToken }}</p>
+    <TheHeader />
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
+import TheHeader from "@/components/TheHeader";
 export default {
   name: "home",
-  components: {},
-  computed: {
-    ...mapGetters("auth", {
-      getAccessToken: "getAccessToken"
-    })
+  components: {
+    TheHeader
   }
 };
 </script>

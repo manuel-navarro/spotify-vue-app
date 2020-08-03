@@ -45,6 +45,7 @@ export default {
   getters: {
     getSearch: state => state.search,
     getResultAlbums: state => state.results.albums,
-    getResultArtists: state => state.results.artists
+    getResultArtists: state => state.results.artists,
+    getResultTracks: state => state.results.tracks
   }
 };

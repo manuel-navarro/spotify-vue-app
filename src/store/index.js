@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import auth from "./modules/auth";
 import search from "./modules/search";
-import interceptors from "@/api/interceptors";
+import plugins from "@/api/interceptors";
 
 Vue.use(Vuex);
 
@@ -11,6 +11,6 @@ export default new Vuex.Store({
     auth,
     search
   },
-  plugins: [interceptors.authInterceptor],
+  plugins: [plugins.authInterceptor, plugins.errorInterceptor],
   strict: process.env.NODE_ENV !== "production"
 });

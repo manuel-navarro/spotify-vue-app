@@ -1,9 +1,13 @@
 import api from "@/api";
+import router from "@/router";
 
 export default {
   namespaced: true,
   state: {
-    user: {},
+    user: {
+      display_name: "...",
+      images: []
+    },
     accessToken: api.auth.getAccessToken() || "",
     expiryTime: ""
   },
@@ -30,7 +34,12 @@ export default {
         console.log(e);
       }
     },
-    doLogout() {},
+    doLogout({ dispatch }) {
+      // Clear accessToken and redirect to login
+      return dispatch("setAccessToken").then(() => {
+        router.push({ name: "login" });
+      });
+    },
     async fetchUser({ commit }) {
       try {
         const response = await api.spotify.users.me();

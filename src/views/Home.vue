@@ -1,36 +1,27 @@
 <template>
   <div class="home">
     <TheHeader />
-    <div v-if="artists">
-      <h2>Artists</h2>
-      <div class="artistsList">
-        <Artist
-          v-for="artist in artists.items.slice(0, 3)"
-          :key="artist.id"
-          :name="artist.name"
-          :genres="artist.genres"
-          :img="getFirstImage(artist)"
-          :followers="artist.followers.total"
-          :href="artist.external_urls.spotify"
-        />
-      </div>
-    </div>
+    <ArtistList v-if="artists" :artists="artists" />
+    <AlbumList v-if="albums" :albums="albums" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TheHeader from "@/components/TheHeader";
-import Artist from "@/components/Artist";
+import ArtistList from "@/components/ArtistList";
+import AlbumList from "@/components/AlbumList";
 
 export default {
   name: "home",
   components: {
     TheHeader,
-    Artist
+    ArtistList,
+    AlbumList
   },
   methods: {
     getFirstImage(item) {
+      // TODO: Get proper image size based on device
       return item.images.length > 0 ? item.images[0].url : null;
     }
   },

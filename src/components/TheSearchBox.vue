@@ -59,7 +59,7 @@ export default {
   font-size: 20px;
   background: white;
   color: var(--dark-gray-color);
-  border: 1px solid var(--gray-color);
+  border: 1px solid var(--light-gray-color);
   border-radius: 5px;
   height: 50px;
   width: 100%;

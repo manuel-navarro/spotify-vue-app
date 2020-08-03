@@ -19,4 +19,9 @@ in other components and views */
   margin: 0 auto;
   padding: 12px 24px;
 }
+h1,
+h2 {
+  margin: 0;
+  text-align: left;
+}
 </style>

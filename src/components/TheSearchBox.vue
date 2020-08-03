@@ -58,10 +58,11 @@ export default {
 .theSearchBox {
   font-size: 20px;
   background: white;
-  border: 1px solid #9e9e9e;
+  color: var(--dark-gray-color);
+  border: 1px solid var(--gray-color);
   border-radius: 5px;
   height: 50px;
   width: 100%;
-  padding: 5px 10px;
+  padding: 5px 20px;
 }
 </style>

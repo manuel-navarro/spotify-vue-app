@@ -5,25 +5,18 @@
 </template>
 
 <style>
+/* Import CSS Variables in non scoped style to make them available
+in other components and views */
+@import "./styles/variables.css";
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+
+  font-family: var(--text-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   text-align: center;
-  color: #2c3e50;
   margin: 0 auto;
   padding: 12px 24px;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

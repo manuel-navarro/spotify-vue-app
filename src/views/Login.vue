@@ -43,28 +43,29 @@ export default {
   justify-content: flex-start;
 }
 .login__divider {
-  color: green;
+  color: var(--secondary-color);
 }
 .login__error {
   color: white;
-  background: hotpink;
+  background: var(--secondary-color);
   padding: 10px 20px;
   border-radius: 5px;
 }
 .login_errorCode {
   font-size: 12px;
 }
+/* TODO: Extract to BaseButton */
 .login__button {
   cursor: pointer;
   color: white;
-  background: green;
-  border-bottom-color: #016a01;
+  background: var(--button-primary-bg);
+  border-bottom-color: var(--button-primary-border-color);
   border-bottom-width: 3px;
   border-bottom-style: solid;
   border-radius: 5px;
   padding: 5px 15px;
 }
 .login__button:hover {
-  background: #42b983;
+  background: var(--button-primary-bg-hover);
 }
 </style>

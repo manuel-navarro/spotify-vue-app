@@ -39,7 +39,7 @@ export default {
   margin-left: 24px;
 }
 .userBar__image {
-  background: #828282;
+  background: var(--light-gray-color);
   border-radius: 40px;
   width: 40px;
   height: 40px;

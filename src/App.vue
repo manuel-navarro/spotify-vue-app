@@ -19,6 +19,13 @@ in other components and views */
   margin: 0 auto;
   padding: 12px 24px;
 }
+a {
+  color: var(--primary-color);
+}
+a:hover,
+a:visited {
+  color: var(--primary-lighter-color);
+}
 h1,
 h2 {
   margin: 0;

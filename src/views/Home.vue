@@ -1,8 +1,17 @@
 <template>
   <div class="home">
     <TheHeader />
-    <ArtistList v-if="artists" :artists="artists" />
-    <AlbumList v-if="albums" :albums="albums" />
+    <ArtistList v-if="artistsExists" :artists="artists" />
+    <AlbumList v-if="albumsExists" :albums="albums" />
+    <TrackGrid v-if="tracksExists" :tracks="tracks" />
+    <div v-if="!search" class="home__message">
+      <p>
+        Hi! Type in the search box to start using this app. Hope you like it!
+      </p>
+    </div>
+    <div v-else-if="noResults" class="home__message">
+      <p>Oops! No results found for {{ search }}</p>
+    </div>
   </div>
 </template>
 
@@ -11,13 +20,15 @@ import { mapGetters } from "vuex";
 import TheHeader from "@/components/TheHeader";
 import ArtistList from "@/components/ArtistList";
 import AlbumList from "@/components/AlbumList";
+import TrackGrid from "@/components/TrackGrid";
 
 export default {
   name: "home",
   components: {
     TheHeader,
     ArtistList,
-    AlbumList
+    AlbumList,
+    TrackGrid
   },
   methods: {
     getFirstImage(item) {
@@ -27,20 +38,28 @@ export default {
   },
   computed: {
     ...mapGetters("search", {
+      search: "getSearch",
       albums: "getResultAlbums",
-      artists: "getResultArtists"
-    })
+      artists: "getResultArtists",
+      tracks: "getResultTracks"
+    }),
+    noResults() {
+      return !this.artistsExists && !this.albumsExists && !this.tracksExists;
+    },
+    artistsExists() {
+      return this.artists && this.artists.total > 0;
+    },
+    albumsExists() {
+      return this.albums && this.albums.total > 0;
+    },
+    tracksExists() {
+      return this.tracks && this.tracks.total > 0;
+    }
   }
 };
 </script>
 <style scoped>
-h2 {
-  margin-top: 2em;
-}
-.artistsList {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
-  overflow-x: auto;
+.home__message {
+  font-size: 22px;
 }
 </style>

@@ -1,20 +1,38 @@
 <template>
   <div class="baseCard">
-    <div class="baseCard__img">
-      <img :src="img" />
+    <div class="baseCard__imgContainer">
+      <img :src="img" class="baseCard__img" />
+      <a :href="href" target="_blank" class="baseCard__listenButton">
+        <BaseIcon
+          width="45"
+          height="45"
+          icon-title="Play"
+          icon-name="play"
+          variant="primary"
+          ><IconPlay
+        /></BaseIcon>
+      </a>
     </div>
     <div class="baseCard__details">
-      <h1 class="baseCard__title">{{ title }}</h1>
-      <h2 class="baseCard__subtitle" v-if="subtitle">{{ subtitle }}</h2>
+      <h1 class="baseCard__title" :title="title">{{ title }}</h1>
+      <h2 class="baseCard__subtitle" v-if="subtitle" :title="subtitle">
+        {{ subtitle }}
+      </h2>
       <slot></slot>
-      <a :href="href" target="_blank" class="baseCard__listenButton">Listen</a>
     </div>
   </div>
 </template>
 
 <script>
+import BaseIcon from "@/components/BaseIcon";
+import IconPlay from "@/components/IconPlay";
+
 export default {
   name: "BaseCard",
+  components: {
+    BaseIcon,
+    IconPlay
+  },
   props: {
     title: String,
     subtitle: Array[String],
@@ -38,15 +56,25 @@ export default {
   display: flex;
 }
 
-.baseCard__img,
+.baseCard__imgContainer,
 .baseCard__details {
   padding: 1em;
 }
-.baseCard__img {
+.baseCard__imgContainer {
   flex: 0 0 auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.baseCard__title {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: auto;
+}
+.baseCard__subtitle {
+  font-size: 15px;
 }
 .baseCard__details {
   display: flex;
@@ -54,8 +82,7 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
 }
-
-.baseCard img {
+.baseCard__img {
   width: 90px;
   height: 90px;
   border-radius: 90px;

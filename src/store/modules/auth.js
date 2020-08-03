@@ -6,7 +6,8 @@ export default {
   state: {
     user: {
       display_name: "...",
-      images: []
+      images: [],
+      external_urls: {}
     },
     accessToken: api.auth.getAccessToken() || "",
     expiryTime: ""
@@ -34,10 +35,10 @@ export default {
         console.log(e);
       }
     },
-    doLogout({ dispatch }) {
+    doLogout({ dispatch }, error) {
       // Clear accessToken and redirect to login
       return dispatch("setAccessToken").then(() => {
-        router.push({ name: "login" });
+        router.push({ name: "login", params: { error } });
       });
     },
     async fetchUser({ commit }) {

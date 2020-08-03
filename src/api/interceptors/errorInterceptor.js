@@ -7,7 +7,7 @@ export default store => {
     // 401 Unauthorized (probably access token is expired)
     if (status === 401) {
       // Force logout
-      store.dispatch("auth/doLogout");
+      store.dispatch("auth/doLogout", { error: status });
     }
 
     // TODO: Manage other errors and provide feedback

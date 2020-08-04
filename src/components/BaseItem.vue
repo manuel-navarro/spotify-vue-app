@@ -31,10 +31,9 @@ export default {
 <style scoped>
 .baseItem {
   display: flex;
-  flex: 0 0 calc(20% - 1.2em);
+  flex: 0 0 100%;
   height: 120px;
   margin-bottom: 1em;
-  margin-right: 0.8em;
   padding: 0.1em;
 }
 .baseItem:hover {
@@ -72,7 +71,6 @@ export default {
   justify-content: flex-start;
   flex: 100%;
 }
-
 .baseItem__img {
   width: 60px;
   height: 60px;
@@ -81,5 +79,25 @@ export default {
   object-fit: cover;
   -o-object-position: center center;
   object-position: center center;
+}
+@media (min-width: 480px) {
+}
+@media (min-width: 768px) {
+  .baseItem {
+    flex: 0 0 calc(50% - 1.2em);
+    margin-right: 0.8em;
+  }
+}
+@media (min-width: 1024px) {
+  .baseItem {
+    flex: 0 0 calc(33% - 1.2em);
+    margin-right: 0.8em;
+  }
+}
+@media (min-width: 1200px) {
+  .baseItem {
+    flex: 0 0 calc(25% - 1.2em);
+    margin-right: 0.8em;
+  }
 }
 </style>

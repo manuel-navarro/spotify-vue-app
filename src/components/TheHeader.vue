@@ -27,21 +27,43 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: column;
   gap: 24px;
 }
 .theHeader__searchBox {
-  /* Allow to shring if userBar grows,
-     initial width is 70% */
-  flex: 0 1 70%;
+  width: 90%;
+  order: 3;
 }
 .theHeader__userBar {
   /* Allow to grow if username requires more space */
   flex: 1;
+  order: 2;
 }
 .theHeader__logo {
   /* Do not allow grow or shrink */
   flex: 0 0 auto;
   width: 65px;
   height: 65px;
+  order: 1;
+}
+@media (min-width: 480px) {
+}
+@media (min-width: 768px) {
+  .theHeader {
+    flex-direction: row;
+  }
+  .theHeader__searchBox {
+    /* Allow to shring if userBar grows,
+     initial width is 70% */
+    flex: 0 1 70%;
+    order: 2;
+  }
+  .theHeader__userBar {
+    order: 3;
+  }
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1200px) {
 }
 </style>

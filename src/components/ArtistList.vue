@@ -1,7 +1,12 @@
 <template>
-  <BaseCardList title="Artists">
+  <BaseCardList
+    title="Artists"
+    type="artist"
+    :visible-rows="1"
+    :show-more="true"
+  >
     <Artist
-      v-for="artist in artists.items.slice(0, 3)"
+      v-for="artist in artists.items.slice(0, 4)"
       :key="artist.id"
       :name="artist.name"
       :genres="artist.genres"

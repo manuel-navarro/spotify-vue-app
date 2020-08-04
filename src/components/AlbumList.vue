@@ -1,7 +1,11 @@
 <template>
-  <BaseCardList title="Albums">
+  <BaseCardList
+    title="Albums"
+    type="album"
+    :show-more="albums.items.length > 3"
+  >
     <Album
-      v-for="album in albums.items"
+      v-for="album in albums.items.slice(0, 3)"
       :key="album.id"
       :name="album.name"
       :img="getFirstImage(album)"

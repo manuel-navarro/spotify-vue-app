@@ -46,16 +46,13 @@ export default {
 
 <style scoped>
 .baseCard {
-  flex: 0 0 calc(25% - 1em);
+  flex: 0 0 100%;
   margin-bottom: 1em;
-  margin-right: 1em;
-  border: 1px solid var(--light-gray-color);
-  border-bottom-width: 4px;
-  border-bottom-color: var(--gray-color);
+  background: white;
   border-radius: 5px;
   display: flex;
+  margin-right: 1em;
 }
-
 .baseCard__imgContainer,
 .baseCard__details {
   padding: 1em;
@@ -90,5 +87,19 @@ export default {
   object-fit: cover;
   -o-object-position: center center;
   object-position: center center;
+}
+
+@media (min-width: 480px) {
+}
+
+@media (min-width: 768px) {
+  .baseCard {
+    flex: 0 0 calc(50% - 1em);
+  }
+}
+@media (min-width: 1200px) {
+  .baseCard {
+    flex: 0 0 calc(25% - 1em);
+  }
 }
 </style>

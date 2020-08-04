@@ -4,8 +4,7 @@
     xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    :class="getVariant"
-    viewBox="0 0 18 18"
+    :class="[getVariantClass, getClickableClass]"
     :aria-labelledby="iconName"
     role="presentation"
     @click="handleClick"
@@ -33,6 +32,10 @@ export default {
       type: String,
       default: "currentColor"
     },
+    iconClickable: {
+      type: Boolean,
+      default: false
+    },
     width: {
       type: [Number, String],
       default: 12
@@ -52,9 +55,15 @@ export default {
     }
   },
   computed: {
-    getVariant() {
+    getVariantClass() {
       if (this.variant) {
         return "baseIcon--" + this.variant;
+      }
+      return "";
+    },
+    getClickableClass() {
+      if (this.iconClickable) {
+        return "baseIcon--clickable";
       }
       return "";
     }
@@ -67,6 +76,10 @@ svg {
   display: inline-block;
   vertical-align: baseline;
   margin-bottom: -2px;
+}
+.baseIcon--clickable,
+.baseIcon--clickable * {
+  cursor: pointer;
 }
 .baseIcon--primary svg {
   fill: var(--primary-lighter-color);

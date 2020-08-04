@@ -43,6 +43,7 @@ export default {
     }
   },
   getters: {
+    getIsSearching: state => state.isSearching,
     getSearch: state => state.search,
     getResultAlbums: state => state.results.albums,
     getResultArtists: state => state.results.artists,

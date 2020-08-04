@@ -9,8 +9,16 @@
         Hi! Type in the search box to start using this app. Hope you like it!
       </p>
     </div>
+    <div v-else-if="isSearching" class="home__searching">
+      <p>
+        Searching...
+      </p>
+    </div>
     <div v-else-if="noResults" class="home__message">
-      <p>Oops! No results found for {{ search }}</p>
+      <p>
+        Oops! No results found for
+        <span class="home__search">{{ search }}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -38,6 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters("search", {
+      isSearching: "getIsSearching",
       search: "getSearch",
       albums: "getResultAlbums",
       artists: "getResultArtists",
@@ -61,5 +70,9 @@ export default {
 <style scoped>
 .home__message {
   font-size: 22px;
+}
+.home__search {
+  font-weight: bold;
+  color: var(--secondary-color);
 }
 </style>

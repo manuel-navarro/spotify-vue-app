@@ -11,6 +11,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import _ from "lodash";
 
 export default {
   name: "TheSearchBox",
@@ -42,14 +43,14 @@ export default {
       get() {
         return this.searchFromStore;
       },
-      set(value) {
+      set: _.debounce(function(value) {
         if (value) {
           this.doSearch(value);
         } else {
           this.clearSearch();
         }
         this.updateRouterQuery(value);
-      }
+      }, 500)
     }
   }
 };

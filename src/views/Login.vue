@@ -6,7 +6,7 @@
     <h2 v-if="errorMessage" class="login__error">
       {{ getErrorMessage }}
       <br />
-      <span class="login_errorCode">Error code: {{ this.errorMessage }}</span>
+      <span class="login_errorCode">Error info: {{ this.errorMessage }}</span>
     </h2>
     <p>Please log in with Spotify to use this app</p>
     <a :href="loginURL" rel="noopener noreferrer" class="login__button"

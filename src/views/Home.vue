@@ -6,10 +6,20 @@
     <TrackGrid v-if="tracksExists" :tracks="tracks" />
     <div v-if="!search" class="home__message">
       <p>
-        Hi! Type in the search box to start using this app. Hope you like it!
+        <span class="home__highlight">Hi!</span> Type in the search box to start
+        using this app. Hope you like it!
       </p>
     </div>
     <div v-else-if="isSearching" class="home__searching">
+      <BaseIcon
+        width="60"
+        height="60"
+        variant="primary"
+        icon-title="Searching"
+        icon-name="searching"
+      >
+        <IconLoading />
+      </BaseIcon>
       <p>
         Searching...
       </p>
@@ -29,10 +39,14 @@ import TheHeader from "@/components/TheHeader";
 import ArtistList from "@/components/ArtistList";
 import AlbumList from "@/components/AlbumList";
 import TrackGrid from "@/components/TrackGrid";
+import BaseIcon from "@/components/BaseIcon";
+import IconLoading from "@/components/IconLoading";
 
 export default {
   name: "home",
   components: {
+    BaseIcon,
+    IconLoading,
     TheHeader,
     ArtistList,
     AlbumList,
@@ -68,11 +82,30 @@ export default {
 };
 </script>
 <style scoped>
+.home {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.home__highlight {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.home__searching,
 .home__message {
   font-size: 22px;
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .home__search {
   font-weight: bold;
   color: var(--secondary-color);
+}
+.home__searching {
+  flex-direction: column;
 }
 </style>

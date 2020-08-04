@@ -7,12 +7,14 @@ const callbackURL = process.env.VUE_APP_ENDPOINT_CALLBACK_URL;
 const clientID = process.env.VUE_APP_API_KEY;
 
 export default {
-  getAuthorizationURL() {
+  getAuthorizationURL(state) {
     const params =
       "?client_id=" +
       clientID +
       "&response_type=token" +
       "&show_dialog=true" +
+      "&state=" +
+      (state ? encodeURIComponent(state) : "") +
       "&redirect_uri=" +
       encodeURIComponent(callbackURL) +
       "&scope=" +

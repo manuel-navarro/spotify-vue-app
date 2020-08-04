@@ -10,7 +10,7 @@
       variant="default"
       ><IconUserCircle
     /></BaseIcon>
-    <h1>
+    <h1 class="userBar__message">
       Welcome, <a :href="userURL" target="_blank">{{ userName }}</a
       >!
     </h1>
@@ -20,6 +20,7 @@
         height="20"
         icon-title="Logout"
         icon-name="logout"
+        :icon-clickable="true"
         variant="default"
         ><IconStandBy
       /></BaseIcon>
@@ -40,6 +41,9 @@ export default {
     IconStandBy,
     IconUserCircle
   },
+  created() {
+    this.fetchUser();
+  },
   computed: {
     ...mapGetters("auth", {
       user: "getUser"
@@ -57,7 +61,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("auth", ["doLogout"])
+    ...mapActions("auth", ["doLogout", "fetchUser"])
   }
 };
 </script>
@@ -70,6 +74,9 @@ export default {
   white-space: nowrap;
   margin-left: 24px;
 }
+.userBar__message {
+  font-size: 1.5em;
+}
 .userBar__image {
   background: var(--light-gray-color);
   border-radius: 40px;
@@ -80,5 +87,16 @@ export default {
   background: none;
   border: 0;
   cursor: pointer;
+}
+@media (min-width: 480px) {
+}
+@media (min-width: 768px) {
+  .userBar__message {
+    font-size: 2em;
+  }
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1200px) {
 }
 </style>

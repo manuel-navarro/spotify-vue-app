@@ -20,24 +20,26 @@ function parseHashFragment(hashFragment) {
 export default {
   name: "",
   methods: {
-    ...mapActions("auth", ["setAccessToken", "setExpiryTime", "fetchUser"])
+    ...mapActions("auth", ["setAccessToken", "setExpiryTime"])
   },
   created() {
     const error = this.$route.query.error;
     if (error) {
+      // TODO: Instead of error code provide better info
       this.$router.push({
         name: "login",
         params: { error }
       });
     } else {
-      const { access_token, expires_in } = parseHashFragment(this.$route.hash);
+      const { access_token, expires_in, state } = parseHashFragment(
+        this.$route.hash
+      );
       const now = new Date();
       const expiryTime = new Date(now.getTime() + expires_in * 1000).getTime();
 
       this.setAccessToken(access_token);
       this.setExpiryTime(expiryTime);
-      this.fetchUser();
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "home", query: { q: state } });
     }
   }
 };

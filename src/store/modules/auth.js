@@ -24,9 +24,9 @@ export default {
     }
   },
   actions: {
-    doLogin() {
+    doLogin(undefined, state) {
       try {
-        const url = api.auth.getAuthorizationURL();
+        const url = api.auth.getAuthorizationURL(state);
         if (url) {
           window.location.href = url;
         }

@@ -32,13 +32,16 @@ export default {
         commit("SET_IS_SEARCHING", false);
       }
     },
-    clearSearch({ commit }) {
+    clearSearch({ commit, dispatch }) {
       commit("SET_RESULTS", {});
-      commit("SET_SEARCH", "");
       commit("SET_IS_SEARCHING", false);
+      dispatch("setSearch", "");
     },
-    startSearching({ commit }, query) {
+    startSearching({ commit, dispatch }, query) {
       commit("SET_IS_SEARCHING", true);
+      dispatch("setSearch", query);
+    },
+    setSearch({ commit }, query) {
       commit("SET_SEARCH", query);
     }
   },

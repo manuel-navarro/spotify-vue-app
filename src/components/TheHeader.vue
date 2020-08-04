@@ -1,7 +1,9 @@
 <template>
   <header class="theHeader">
     <!-- TODO: Add APP logo here -->
-    <span class="theHeader__logo"></span>
+    <div class="theHeader__logo">
+      <IconLogo width="65" height="65" />
+    </div>
     <TheSearchBox class="theHeader__searchBox" />
     <TheUserBar class="theHeader__userBar" />
   </header>
@@ -9,11 +11,14 @@
 <script>
 import TheUserBar from "@/components/TheUserBar";
 import TheSearchBox from "@/components/TheSearchBox";
+import IconLogo from "@/components/IconLogo";
+
 export default {
   name: "TheHeader",
   components: {
     TheUserBar,
-    TheSearchBox
+    TheSearchBox,
+    IconLogo
   }
 };
 </script>
@@ -38,7 +43,5 @@ export default {
   flex: 0 0 auto;
   width: 65px;
   height: 65px;
-  background: var(--primary-lighter-color);
-  border-radius: 5px;
 }
 </style>

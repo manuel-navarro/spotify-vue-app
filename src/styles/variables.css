@@ -15,9 +15,9 @@
   --default-darker-color: var(--gray-color);
  
   /* TODO extract colors to variables */
-  --primary-color: green;
+  --primary-color: #3e916c;
   --primary-text-color: white;
-  --primary-bg-color: green;
+  --primary-bg-color: #3e916c;
   --primary-lighter-color: #42b983;
   --primary-darker-color: #016a01;
 

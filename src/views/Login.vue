@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <IconLogo width="150" height="150" class="login__logo" />
     <h1>Spotify Vue App</h1>
     <hr class="login__divider" />
     <h2 v-if="errorMessage" class="login__error">
@@ -16,10 +17,12 @@
 
 <script>
 import auth from "@/api/auth";
-
+import IconLogo from "@/components/IconLogo";
 export default {
   name: "login",
-  components: {},
+  components: {
+    IconLogo
+  },
   props: {
     errorMessage: String
   },
@@ -41,6 +44,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+.login__logo {
+  margin-bottom: 20px;
 }
 .login__divider {
   color: var(--secondary-color);

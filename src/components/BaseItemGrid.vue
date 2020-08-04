@@ -1,6 +1,17 @@
 <template>
   <div class="baseItemGrid">
-    <h2 class="baseItemGrid__title">{{ title }}</h2>
+    <h2 class="baseItemGrid__title">
+      <BaseIcon
+        class="baseItemGrid__icon"
+        width="24"
+        height="24"
+        icon-title="Artists"
+        icon-name="artist"
+        variant="default"
+        ><IconMusic
+      /></BaseIcon>
+      {{ title }}
+    </h2>
     <div class="baseItemGrid__content">
       <slot />
     </div>
@@ -8,9 +19,15 @@
 </template>
 
 <script>
+import BaseIcon from "@/components/BaseIcon";
+import IconMusic from "@/components/IconMusic";
+
 export default {
   name: "BaseItemGrid",
-  components: {},
+  components: {
+    BaseIcon,
+    IconMusic
+  },
   props: {
     title: String
   }

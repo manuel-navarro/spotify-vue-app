@@ -70,20 +70,26 @@ svg {
 }
 .baseIcon--primary svg {
   fill: var(--primary-lighter-color);
+  color: var(--primary-lighter-color);
 }
 .baseIcon--primary:hover svg {
+  color: var(--primary-color);
   fill: var(--primary-color);
 }
 .baseIcon--secondary svg {
+  color: var(--secondary-color);
   fill: var(--secondary-color);
 }
 .baseIcon--secondary:hover svg {
   fill: var(--secondary-lighter-color);
+  color: var(--secondary-lighter-color);
 }
 .baseIcon--default svg {
+  color: var(--default-color);
   fill: var(--default-color);
 }
 .baseIcon--default:hover svg {
   fill: var(--default-lighter-color);
+  color: var(--default-lighter-color);
 }
 </style>

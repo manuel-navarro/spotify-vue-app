@@ -21,7 +21,7 @@
         icon-title="Logout"
         icon-name="logout"
         :icon-clickable="true"
-        variant="default"
+        variant="secondary"
         ><IconStandBy
       /></BaseIcon>
     </button>
@@ -30,9 +30,9 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import BaseIcon from "@/components/BaseIcon";
-import IconStandBy from "@/components/IconStandBy";
-import IconUserCircle from "@/components/IconUserCircle";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconStandBy from "@/components/Icon/IconStandBy";
+import IconUserCircle from "@/components/Icon/IconUserCircle";
 
 export default {
   name: "TheUserBar",

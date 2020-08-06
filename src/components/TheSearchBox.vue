@@ -9,8 +9,12 @@
       variant="default"
       ><IconSearch
     /></BaseIcon>
+    <label for="theSearchBox__input" class="theSearchBox__label screen-readers"
+      >Type here to search artists, albums or tracks</label
+    >
     <input
       class="theSearchBox__input"
+      name="theSearchBox__input"
       ref="searchBox"
       type="search"
       v-model="search"
@@ -23,8 +27,8 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import _ from "lodash";
-import BaseIcon from "@/components/BaseIcon";
-import IconSearch from "@/components/IconSearch";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconSearch from "@/components/Icon/IconSearch";
 
 export default {
   name: "TheSearchBox",

@@ -1,8 +1,18 @@
 <template>
-  <div class="baseItem">
+  <article class="baseItem">
     <div class="baseItem__imgContainer">
       <img :src="img" class="baseItem__img" />
-      <a :href="href" target="_blank" class="baseItem__listenButton">Listen</a>
+      <div>
+        <a :href="href" target="_blank" class="baseItem__listenButton">
+          <BaseIcon
+            width="25"
+            height="25"
+            icon-title="Play song in Spotify"
+            icon-name="play"
+            variant="primary"
+            ><IconPlay /></BaseIcon
+        ></a>
+      </div>
     </div>
     <div class="baseItem__details">
       <h1 class="baseItem__title" :title="title">{{ title }}</h1>
@@ -11,12 +21,19 @@
       </p>
       <slot></slot>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconPlay from "@/components/Icon/IconPlay";
+
 export default {
   name: "BaseItem",
+  components: {
+    BaseIcon,
+    IconPlay
+  },
   props: {
     title: String,
     subtitle: Array[String],
@@ -34,7 +51,9 @@ export default {
   flex: 0 0 100%;
   height: 120px;
   margin-bottom: 1em;
-  padding: 0.1em;
+  padding: 0.4em;
+  border-radius: 5px;
+  background: white;
 }
 .baseItem:hover {
   background: #f2f2f2;

@@ -11,7 +11,7 @@
 <script>
 import TheUserBar from "@/components/TheUserBar";
 import TheSearchBox from "@/components/TheSearchBox";
-import IconLogo from "@/components/IconLogo";
+import IconLogo from "@/components/Icon/IconLogo";
 
 export default {
   name: "TheHeader",

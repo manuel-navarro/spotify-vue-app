@@ -1,6 +1,11 @@
 <template>
-  <div class="baseCardList">
-    <h2 class="baseCardList__title">
+  <section
+    class="baseCardList"
+    role="region"
+    aria-live="polite"
+    :aria-label="title"
+  >
+    <h1 class="baseCardList__title">
       <BaseIcon
         class="baseCardList__icon"
         width="24"
@@ -10,9 +15,10 @@
         variant="default"
       >
         <IconArtist v-if="isArtist" />
-        <IconAlbum v-else-if="isAlbum" /> </BaseIcon
-      >{{ title }}
-    </h2>
+        <IconAlbum v-else-if="isAlbum" />
+      </BaseIcon>
+      {{ title }}
+    </h1>
     <div
       class="baseCardList__content"
       ref="content"
@@ -23,13 +29,13 @@
       <slot />
     </div>
     <button class="baseCardList__showMore" v-if="showMore">Show more</button>
-  </div>
+  </section>
 </template>
 
 <script>
-import BaseIcon from "@/components/BaseIcon";
-import IconArtist from "@/components/IconArtist";
-import IconAlbum from "@/components/IconAlbum";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconArtist from "@/components/Icon/IconArtist";
+import IconAlbum from "@/components/Icon/IconAlbum";
 
 export default {
   name: "BaseCardList",
@@ -87,17 +93,17 @@ export default {
 .baseCardList__showMore:hover {
   color: var(--primary-lighter-color);
 }
-.baseCardList__content {
+.baseCardList__content > div {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1em;
 }
 .baseCardList__content--show1 {
   overflow: hidden;
-  height: 181px;
+  height: calc(var(--card-height) + 1em);
 }
 .baseCardList__content--show2 {
   overflow: hidden;
-  height: calc(362px + 1em);
+  height: calc(var(--card-height) * 2px + 1em);
 }
 </style>

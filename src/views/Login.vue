@@ -17,7 +17,7 @@
 
 <script>
 import auth from "@/api/auth";
-import IconLogo from "@/components/IconLogo";
+import IconLogo from "@/components/Icon/IconLogo";
 export default {
   name: "login",
   components: {

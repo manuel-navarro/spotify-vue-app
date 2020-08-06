@@ -1,12 +1,12 @@
 <template>
-  <div class="baseCard">
+  <article class="baseCard">
     <div class="baseCard__imgContainer">
-      <img :src="img" class="baseCard__img" />
+      <img :src="img" class="baseCard__img" :alt="title" />
       <a :href="href" target="_blank" class="baseCard__listenButton">
         <BaseIcon
           width="45"
           height="45"
-          icon-title="Play"
+          icon-title="Play in Spotify"
           icon-name="play"
           variant="primary"
           ><IconPlay
@@ -15,17 +15,20 @@
     </div>
     <div class="baseCard__details">
       <h1 class="baseCard__title" :title="title">{{ title }}</h1>
-      <h2 class="baseCard__subtitle" v-if="subtitle" :title="subtitle">
-        {{ subtitle }}
+      <h2 class="baseCard__subtitle" v-if="subtitleSlotPassed">
+        <slot name="subtitle"></slot>
       </h2>
-      <slot></slot>
+      <div class="baseCard__detailsContent">
+        <slot></slot>
+        <slot name="bottom" class="baseCard__bottom"></slot>
+      </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
-import BaseIcon from "@/components/BaseIcon";
-import IconPlay from "@/components/IconPlay";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconPlay from "@/components/Icon/IconPlay";
 
 export default {
   name: "BaseCard",
@@ -40,10 +43,18 @@ export default {
     img: String,
     type: String
   },
-  computed: {}
+  computed: {
+    subtitleSlotPassed() {
+      return !!this.$slots.subtitle;
+    }
+  }
 };
 </script>
-
+<style>
+:root {
+  --card-height: 185px;
+}
+</style>
 <style scoped>
 .baseCard {
   flex: 0 0 100%;
@@ -52,10 +63,18 @@ export default {
   border-radius: 5px;
   display: flex;
   margin-right: 1em;
+  height: var(--card-height);
 }
 .baseCard__imgContainer,
 .baseCard__details {
   padding: 1em;
+}
+.baseCard__detailsContent {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 .baseCard__imgContainer {
   flex: 0 0 auto;

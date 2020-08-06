@@ -1,6 +1,11 @@
 <template>
-  <div class="baseItemGrid">
-    <h2 class="baseItemGrid__title">
+  <section
+    class="baseItemGrid"
+    role="region"
+    aria-live="polite"
+    :aria-label="title"
+  >
+    <h1 class="baseItemGrid__title">
       <BaseIcon
         class="baseItemGrid__icon"
         width="24"
@@ -11,16 +16,16 @@
         ><IconMusic
       /></BaseIcon>
       {{ title }}
-    </h2>
+    </h1>
     <div class="baseItemGrid__content">
       <slot />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import BaseIcon from "@/components/BaseIcon";
-import IconMusic from "@/components/IconMusic";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconMusic from "@/components/Icon/IconMusic";
 
 export default {
   name: "BaseItemGrid",
@@ -29,7 +34,10 @@ export default {
     IconMusic
   },
   props: {
-    title: String
+    title: {
+      type: String,
+      default: ""
+    }
   }
 };
 </script>
@@ -38,7 +46,7 @@ export default {
 .baseItemGrid__title {
   margin-top: 2em;
 }
-.baseItemGrid__content {
+.baseItemGrid__content > div {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1em;

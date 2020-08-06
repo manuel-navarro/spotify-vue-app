@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import BaseIcon from "@/components/BaseIcon";
-import IconMusic from "@/components/IconMusic";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconMusic from "@/components/Icon/IconMusic";
 export default {
   name: "IconLogo",
   components: {

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import BaseItem from "@/components/BaseItem.vue";
+import BaseItem from "@/components/Base/BaseItem.vue";
 
 export default {
   name: "Track",

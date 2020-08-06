@@ -5,9 +5,9 @@
     <AlbumList v-if="albumsExists" :albums="albums" />
     <TrackGrid v-if="tracksExists" :tracks="tracks" />
     <div v-if="!search" class="home__message">
+      <p class="home__messageHighlight">Hi! :-)</p>
       <p>
-        <span class="home__highlight">Hi!</span> Type in the search box to start
-        using this app. Hope you like it!
+        Type in the search box to start using this app. Hope you like it!
       </p>
     </div>
     <div v-else-if="isSearching" class="home__searching">
@@ -36,11 +36,11 @@
 <script>
 import { mapGetters } from "vuex";
 import TheHeader from "@/components/TheHeader";
-import ArtistList from "@/components/ArtistList";
-import AlbumList from "@/components/AlbumList";
-import TrackGrid from "@/components/TrackGrid";
-import BaseIcon from "@/components/BaseIcon";
-import IconLoading from "@/components/IconLoading";
+import ArtistList from "@/components/Artist/ArtistList";
+import AlbumList from "@/components/Album/AlbumList";
+import TrackGrid from "@/components/Track/TrackGrid";
+import BaseIcon from "@/components/Base/BaseIcon";
+import IconLoading from "@/components/Icon/IconLoading";
 
 export default {
   name: "home",
@@ -51,12 +51,6 @@ export default {
     ArtistList,
     AlbumList,
     TrackGrid
-  },
-  methods: {
-    getFirstImage(item) {
-      // TODO: Get proper image size based on device
-      return item.images.length > 0 ? item.images[0].url : null;
-    }
   },
   computed: {
     ...mapGetters("search", {
@@ -88,18 +82,20 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.home__highlight {
-  font-size: 25px;
-  font-weight: bold;
-  color: var(--primary-color);
-}
 .home__searching,
 .home__message {
   font-size: 22px;
   flex: auto;
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.home__messageHighlight {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0;
 }
 .home__search {
   font-weight: bold;

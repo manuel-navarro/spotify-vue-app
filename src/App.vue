@@ -5,6 +5,7 @@
 </template>
 
 <style>
+/* TODO Move imports to main.js */
 /* Import CSS Variables in non scoped style to make them available
 in other components and views */
 @import "./styles/variables.css";

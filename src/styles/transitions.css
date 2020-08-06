@@ -1,0 +1,25 @@
+.flip-enter-active {
+  transition: all 0.32s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition-delay: 0.32s;
+}
+.flip-leave-active {
+  transition: all 0.37s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.flip-enter,
+.flip-leave-to {
+  transform: scaleX(0) translateZ(0);
+  opacity: 0;
+}
+
+/* FADE TRANSITION */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.35s ease-out;
+}
+.fade-enter-active {
+  transition-delay: 0.1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -17,9 +17,7 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
-}
-body {
-  background: #e8e8e8;
+  background: #313131;
 }
 * {
   box-sizing: border-box;
@@ -39,8 +37,6 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  min-width: 480px;
-  background: #313131;
 }
 a {
   color: var(--primary-color);

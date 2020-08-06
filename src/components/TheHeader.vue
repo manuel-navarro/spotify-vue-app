@@ -29,6 +29,8 @@ export default {
   justify-content: flex-start;
   flex-direction: column;
   gap: 24px;
+  padding: 12px 24px;
+  background: #191919;
 }
 .theHeader__searchBox {
   width: 90%;

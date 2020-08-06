@@ -18,6 +18,7 @@
       <BaseIcon
         width="20"
         height="20"
+        class="userBar__logoutIcon"
         icon-title="Logout"
         icon-name="logout"
         :icon-clickable="true"
@@ -87,6 +88,12 @@ export default {
   background: none;
   border: 0;
   cursor: pointer;
+}
+.userBar__logoutIcon {
+  background: #3c3c3c;
+  padding: 5px;
+  border-radius: 25px;
+  box-sizing: content-box;
 }
 @media (min-width: 480px) {
 }

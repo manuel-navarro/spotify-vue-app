@@ -1,11 +1,10 @@
-
 :root {
   --gray-color: #828282;
   --dark-gray-color: #2c3e50;
   --light-gray-color: #cccccc;
 
   --text-family: "Avenir", Helvetica, Arial, sans-serif;
-  --text-color: var(--dark-gray-color);
+  --text-color: white;
   --bg-color: white;
 
   --default-color: var(--gray-color);
@@ -13,7 +12,7 @@
   --default-bg-color: var(--gray-color);
   --default-lighter-color: var(--light-gray-color);
   --default-darker-color: var(--gray-color);
- 
+
   /* TODO extract colors to variables */
   --primary-color: #3e916c;
   --primary-text-color: white;
@@ -21,7 +20,7 @@
   --primary-lighter-color: #42b983;
   --primary-darker-color: #016a01;
 
-   /* TODO extract colors to variables */
+  /* TODO extract colors to variables */
   --secondary-color: hotpink;
   --secondary-text-color: white;
   --secondary-bg-color: hotpink;

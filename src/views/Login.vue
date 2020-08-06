@@ -1,8 +1,7 @@
 <template>
   <div class="login">
     <IconLogo width="150" height="150" class="login__logo" />
-    <h1>Spotify Vue App</h1>
-    <hr class="login__divider" />
+    <h1 class="login__title">Spotify Vue App</h1>
     <h2 v-if="errorMessage" class="login__error">
       {{ getErrorMessage }}
       <br />
@@ -44,6 +43,10 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding-top: 50px;
+}
+.login__title {
+  margin-bottom: 1em;
 }
 .login__logo {
   margin-bottom: 20px;
@@ -70,6 +73,7 @@ export default {
   border-bottom-style: solid;
   border-radius: 5px;
   padding: 5px 15px;
+  text-decoration: unset;
 }
 .login__button:hover {
   background: var(--button-primary-bg-hover);

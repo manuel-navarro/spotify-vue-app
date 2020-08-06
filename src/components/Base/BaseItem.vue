@@ -52,12 +52,10 @@ export default {
   height: 120px;
   margin-bottom: 1em;
   padding: 0.4em;
-  border-radius: 5px;
-  background: white;
+  background: #3a3a3a;
 }
 .baseItem:hover {
-  background: #f2f2f2;
-  border-radius: 5px;
+  background: #5a5a5a;
 }
 .baseItem__title {
   font-size: 18px;

@@ -7,7 +7,7 @@
   >
     <transition-group appear name="fade" tag="div">
       <Album
-        v-for="album in albums.items.slice(0, 3)"
+        v-for="album in albums.items.slice(0, 4)"
         :key="album.id"
         :name="album.name"
         :img="getSmallerImage(album)"

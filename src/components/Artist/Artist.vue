@@ -29,6 +29,6 @@ export default {
 <style scoped>
 .artist__followers {
   font-size: 20px;
-  color: var(--gray-color);
+  color: var(--light-gray-color);
 }
 </style>

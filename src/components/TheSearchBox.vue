@@ -86,12 +86,14 @@ export default {
 }
 .theSearchBox__input {
   font-size: 20px;
-  background: none;
+  background: #2b2b2b;
+  color: white;
   border: none;
   border-bottom: 1px solid var(--light-gray-color);
   height: 50px;
   width: 100%;
   padding: 8px 20px 5px 10px;
+  border-radius: 4px;
 }
 .theSearchBox__input:focus {
   outline: none;

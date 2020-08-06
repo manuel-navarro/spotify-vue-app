@@ -65,7 +65,7 @@ export default {
 }
 .track__duration {
   font-size: 0.8em;
-  color: var(--gray-color);
+  color: var(--light-gray-color);
 }
 .track__explicit {
   font-size: 0.6em;

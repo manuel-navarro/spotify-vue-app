@@ -1,34 +1,36 @@
 <template>
   <div class="home">
     <TheHeader />
-    <ArtistList v-if="artistsExists" :artists="artists" />
-    <AlbumList v-if="albumsExists" :albums="albums" />
-    <TrackGrid v-if="tracksExists" :tracks="tracks" />
-    <div v-if="!search" class="home__message">
-      <p class="home__messageHighlight">Hi! :-)</p>
-      <p>
-        Type in the search box to start using this app. Hope you like it!
-      </p>
-    </div>
-    <div v-else-if="isSearching" class="home__searching">
-      <BaseIcon
-        width="60"
-        height="60"
-        variant="primary"
-        icon-title="Searching"
-        icon-name="searching"
-      >
-        <IconLoading />
-      </BaseIcon>
-      <p>
-        Searching...
-      </p>
-    </div>
-    <div v-else-if="noResults" class="home__message">
-      <p>
-        Oops! No results found for
-        <span class="home__search">{{ search }}</span>
-      </p>
+    <div class="home__content">
+      <ArtistList v-if="artistsExists" :artists="artists" />
+      <AlbumList v-if="albumsExists" :albums="albums" />
+      <TrackGrid v-if="tracksExists" :tracks="tracks" />
+      <div v-if="!search" class="home__message">
+        <p class="home__messageHighlight">Hi! :-)</p>
+        <p>
+          Type in the search box to start using this app. Hope you like it!
+        </p>
+      </div>
+      <div v-else-if="isSearching" class="home__searching">
+        <BaseIcon
+          width="60"
+          height="60"
+          variant="primary"
+          icon-title="Searching"
+          icon-name="searching"
+        >
+          <IconLoading />
+        </BaseIcon>
+        <p>
+          Searching...
+        </p>
+      </div>
+      <div v-else-if="noResults" class="home__message">
+        <p>
+          Oops! No results found for
+          <span class="home__search">{{ search }}</span>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +83,13 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+.home__content {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px;
+  flex: auto;
+  background: #313131;
 }
 .home__searching,
 .home__message {

@@ -59,11 +59,14 @@ export default {
 .baseCard {
   flex: 0 0 100%;
   margin-bottom: 1em;
-  background: white;
+  background: #3a3a3a;
   border-radius: 5px;
   display: flex;
   margin-right: 1em;
   height: var(--card-height);
+}
+.baseCard:hover {
+  background: #5a5a5a;
 }
 .baseCard__imgContainer,
 .baseCard__details {
@@ -75,6 +78,7 @@ export default {
   flex: auto;
   align-items: flex-start;
   justify-content: flex-end;
+  text-align: left;
 }
 .baseCard__imgContainer {
   flex: 0 0 auto;
@@ -88,6 +92,8 @@ export default {
   font-size: 18px;
   text-overflow: ellipsis;
   overflow: auto;
+  flex: 0 0 auto;
+  max-height: 50px;
 }
 .baseCard__subtitle {
   font-size: 15px;

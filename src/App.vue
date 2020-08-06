@@ -35,11 +35,12 @@ body {
 
   text-align: center;
   margin: 0 auto;
-  padding: 12px 24px;
 
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  min-width: 480px;
+  background: #313131;
 }
 a {
   color: var(--primary-color);

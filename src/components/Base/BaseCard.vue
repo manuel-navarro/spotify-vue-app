@@ -1,7 +1,8 @@
 <template>
   <article class="baseCard">
     <div class="baseCard__imgContainer">
-      <img :src="img" class="baseCard__img" :alt="title" />
+      <img :src="img" class="baseCard__img" :alt="title" v-if="img" />
+      <span v-else class="baseCard__imgPlaceholder"></span>
       <a :href="href" target="_blank" class="baseCard__listenButton">
         <BaseIcon
           width="45"
@@ -104,11 +105,12 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
 }
+.baseCard__imgPlaceholder,
 .baseCard__img {
   width: 90px;
   height: 90px;
   border-radius: 90px;
-  background-color: var(--light-gray-color);
+  background-color: var(--gray-color);
   object-fit: cover;
   -o-object-position: center center;
   object-position: center center;
